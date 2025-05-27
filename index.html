@@ -3,381 +3,359 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RevZone - For True Car Enthusiasts</title>
+    <title>Vector Garage | Premium Car Enthusiast Community</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* Global Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+        /* Internal CSS */
+        :root {
+            --primary: #e63946;
+            --secondary: #1d3557;
+            --dark: #0d1b2a;
+            --light: #f1faee;
+            --accent: #ffd166;
         }
         
         body {
-            background-color: #f5f5f5;
-            color: #333;
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
             overflow-x: hidden;
         }
         
-        /* Header Styles */
-        header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url();
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            position: relative;
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
         }
         
-        .logo {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            animation: fadeInDown 1.5s ease;
+        .navbar {
+            background-color: rgba(13, 27, 42, 0.9) !important;
+            border-bottom: 2px solid var(--primary);
         }
         
-        .logo span {
-            color: #ff4d4d;
-        }
-        
-        .tagline {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            animation: fadeInUp 1.5s ease;
-        }
-        
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(0,0,0,0.8);
-            padding: 20px 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-        
-        nav.scrolled {
-            background-color: rgba(0,0,0,0.95);
-            padding: 15px 0;
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .nav-logo {
-            color: white;
+        .navbar-brand {
+            font-family: 'Orbitron', sans-serif;
             font-size: 1.8rem;
-            font-weight: bold;
-            text-decoration: none;
+            color: var(--primary) !important;
+            text-shadow: 0 0 10px rgba(230, 57, 70, 0.5);
+            animation: pulse 2s infinite;
         }
         
-        .nav-logo span {
-            color: #ff4d4d;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 30px;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: color 0.3s ease;
+        .nav-link {
+            color: var(--light) !important;
+            font-family: 'Orbitron', sans-serif;
+            margin: 0 10px;
             position: relative;
         }
         
-        .nav-links a:hover {
-            color: #ff4d4d;
+        .nav-link:hover {
+            color: var(--primary) !important;
         }
         
-        .nav-links a::after {
+        .nav-link::after {
             content: '';
             position: absolute;
             width: 0;
             height: 2px;
-            background: #ff4d4d;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
-            transition: width 0.3s ease;
+            background-color: var(--primary);
+            transition: width 0.3s;
         }
         
-        .nav-links a:hover::after {
+        .nav-link:hover::after {
             width: 100%;
         }
         
-        /* Main Content */
-        .main-content {
-            max-width: 1200px;
-            margin: 50px auto;
-            padding: 0 20px;
+        .hero {
+            background: linear-gradient(rgba(13, 27, 42, 0.8), rgba(13, 27, 42, 0.8)), 
+                        url('https://masterpiecer-images.s3.yandex.net/7d82feb95b5411eeb34202c370ea8a2f:upscaled');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 0%, var(--dark) 70%);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(230, 57, 70, 0.7);
+            animation: fadeInDown 1.5s ease-out;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            animation: fadeInUp 1.5s ease-out 0.5s both;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border: none;
+            padding: 12px 30px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            animation: fadeInUp 1.5s ease-out 1s both;
+        }
+        
+        .btn-primary:hover {
+            background-color: #c1121f;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(230, 57, 70, 0.3);
         }
         
         .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
             position: relative;
+            margin-bottom: 3rem;
+            display: inline-block;
         }
         
         .section-title::after {
             content: '';
             position: absolute;
-            width: 100px;
-            height: 3px;
-            background: #ff4d4d;
+            width: 50%;
+            height: 4px;
+            background-color: var(--primary);
             bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 0;
         }
         
-        /* Car Showcase */
-        .car-showcase {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-            margin-bottom: 80px;
+        .feature-card {
+            background-color: rgba(29, 53, 87, 0.5);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 209, 102, 0.1);
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .car-audio-player {
+            background-color: rgba(29, 53, 87, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(230, 57, 70, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .car-audio-player:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(230, 57, 70, 0.2);
+        }
+        
+        .audio-title {
+            color: var(--accent);
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 15px;
         }
         
         .car-card {
-            background: white;
+            background-color: rgba(29, 53, 87, 0.5);
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 30px;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 209, 102, 0.1);
         }
         
         .car-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent);
         }
         
-        .car-image {
-            height: 250px;
-            overflow: hidden;
-        }
-        
-        .car-image img {
-            width: 100%;
-            height: 100%;
+        .car-img {
+            height: 200px;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            width: 100%;
+            transition: all 0.5s;
         }
         
-        .car-card:hover .car-image img {
-            transform: scale(1.1);
-        }
-        
-        .car-info {
-            padding: 20px;
-        }
-        
-        .car-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-        
-        .car-info p {
-            color: #666;
-            margin-bottom: 15px;
+        .car-card:hover .car-img {
+            transform: scale(1.05);
         }
         
         .car-specs {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
+            padding: 20px;
         }
         
         .spec-item {
-            text-align: center;
-        }
-        
-        .spec-item i {
-            font-size: 1.5rem;
-            color: #ff4d4d;
-            margin-bottom: 5px;
-        }
-        
-        .spec-item span {
-            display: block;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: #ff4d4d;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background 0.3s ease;
-        }
-        
-        .btn:hover {
-            background: #e60000;
-        }
-        
-        /* Engine Sounds Section */
-        .engine-sounds {
-            background: #222;
-            padding: 80px 0;
-            color: white;
-            margin-bottom: 80px;
-        }
-        
-        .sound-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .sound-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .sound-card {
-            background: #333;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-        
-        .sound-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .sound-card h3 {
-            margin-bottom: 15px;
-            color: #ff4d4d;
-        }
-        
-        audio {
-            width: 100%;
-            margin-bottom: 15px;
-            border-radius: 50px;
-        }
-        
-        /* About Section */
-        .about-section {
             display: flex;
-            align-items: center;
-            margin-bottom: 80px;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
         }
         
-        .about-image {
-            flex: 1;
-            padding-right: 50px;
+        .spec-value {
+            color: var(--accent);
+            font-weight: 700;
         }
         
-        .about-image img {
-            width: 100%;
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
             border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transform: perspective(1000px) rotateY(-10deg);
-            transition: transform 0.5s ease;
+            margin-bottom: 30px;
+            height: 250px;
         }
         
-        .about-image:hover img {
-            transform: perspective(1000px) rotateY(0deg);
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s;
         }
         
-        .about-content {
-            flex: 1;
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(13, 27, 42, 0.9), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: all 0.3s;
         }
         
-        .about-content h2 {
-            font-size: 2rem;
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+        
+        .contact-form {
+            background-color: rgba(29, 53, 87, 0.5);
+            border-radius: 10px;
+            padding: 30px;
+            border: 1px solid rgba(255, 209, 102, 0.1);
+        }
+        
+        .form-control {
+            background-color: rgba(241, 250, 238, 0.1);
+            border: 1px solid rgba(255, 209, 102, 0.2);
+            color: var(--light);
             margin-bottom: 20px;
         }
         
-        .about-content p {
-            margin-bottom: 15px;
-            line-height: 1.6;
+        .form-control:focus {
+            background-color: rgba(241, 250, 238, 0.2);
+            border-color: var(--primary);
+            color: var(--light);
+            box-shadow: 0 0 10px rgba(230, 57, 70, 0.3);
         }
         
-        /* Footer */
         footer {
-            background: #222;
-            color: white;
+            background-color: var(--secondary);
             padding: 50px 0 20px;
-            text-align: center;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
-        }
-        
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            margin: 0 15px;
-            transition: color 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            color: #ff4d4d;
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            margin-bottom: 30px;
-        }
-        
-        .footer-links li {
-            margin: 0 15px;
+            position: relative;
         }
         
         .footer-links a {
-            color: #aaa;
+            color: var(--light);
+            margin: 0 15px;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: all 0.3s;
         }
         
         .footer-links a:hover {
-            color: white;
+            color: var(--primary);
         }
         
-        .copyright {
-            color: #666;
-            font-size: 0.9rem;
+        .social-icons a {
+            color: var(--light);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: #c1121f;
+            transform: translateY(-5px);
         }
         
         /* Animations */
+        @keyframes pulse {
+            0% { text-shadow: 0 0 10px rgba(230, 57, 70, 0.5); }
+            50% { text-shadow: 0 0 20px rgba(230, 57, 70, 0.8); }
+            100% { text-shadow: 0 0 10px rgba(230, 57, 70, 0.5); }
+        }
+        
         @keyframes fadeInDown {
             from {
                 opacity: 0;
@@ -400,231 +378,601 @@
             }
         }
         
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
         }
         
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .floating {
+            animation: float 6s ease-in-out infinite;
         }
         
-        /* Responsive Design */
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+        
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            .hero h1 {
+                font-size: 2.5rem;
             }
             
-            .about-section {
-                flex-direction: column;
-            }
-            
-            .about-image {
-                padding-right: 0;
-                margin-bottom: 30px;
-            }
-            
-            .car-showcase {
-                grid-template-columns: 1fr;
+            .hero p {
+                font-size: 1rem;
             }
         }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+        }
+        .video-card {
+    background-color: rgba(29, 53, 87, 0.5);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s;
+    border: 1px solid rgba(255, 209, 102, 0.1);
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-color: var(--accent);
+}
+
+.video-info {
+    background-color: rgba(13, 27, 42, 0.7);
+}
+
+.video-meta {
+    color: var(--accent);
+    font-size: 0.9rem;
+    margin-top: 15px;
+}
+
+.video-meta i {
+    color: var(--primary);
+}
+
+.ratio-16x9 {
+    border-bottom: 3px solid var(--primary);
+}
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <a href="#" class="nav-logo">Rev<span>Zone</span></a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#showcase">Showcase</a></li>
-                <li><a href="#sounds">Engine Sounds</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">VECTOR GARAGE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sounds">Engine Sounds</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#showcase">Showcase</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Gallery</a>
+                        <li class="nav-item">
+    <a class="nav-link" href="#videos">Videos</a>
+</li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+
+                </ul>
+            </div>
         </div>
     </nav>
-    
-    <!-- Header -->
-    <header id="home">
-        <h1 class="logo">Rev<span>Zone</span></h1>
-        <p class="tagline">Where Passion Meets Horsepower</p>
-        <a href="#showcase" class="btn">Explore Cars</a>
-    </header>
-    
-    <!-- Main Content -->
-    <div class="main-content">
-        <!-- Car Showcase -->
-        <section id="showcase" class="animate-on-scroll">
-            <h2 class="section-title">Featured Rides</h2>
-            <div class="car-showcase">
-                <div class="car-card">
-                    <div class="car-image">
-                        <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Porsche 911">
-                    </div>
-                    <div class="car-info">
-                        <h3>Porsche 911 Turbo S</h3>
-                        <p>The pinnacle of German engineering with blistering performance and timeless design.</p>
-                        <div class="car-specs">
-                            <div class="spec-item">
-                                <i class="fas fa-tachometer-alt"></i>
-                                <span>205 mph</span>
-                            </div>
-                            <div class="spec-item">
-                                <i class="fas fa-bolt"></i>
-                                <span>640 HP</span>
-                            </div>
-                            <div class="spec-item">
-                                <i class="fas fa-stopwatch"></i>
-                                <span>2.6s 0-60</span>
-                            </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1>Fuel Your Passion</h1>
+                    <p>Vector Garage is the ultimate destination for car enthusiasts. Experience the roar of legendary engines, explore rare vehicles, and connect with a community that shares your passion for automotive excellence.</p>
+                    <a href="#features" class="btn btn-primary btn-lg">Explore More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5" id="features" style="background-color: var(--dark);">
+        <div class="container py-5">
+            <h2 class="text-center section-title">Why Vector Garage</h2>
+            <p class="text-center mb-5">Premium features for the discerning automotive enthusiast</p>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon text-center">
+                            <i class="fas fa-tachometer-alt"></i>
                         </div>
-                        <a href="#" class="btn">View Details</a>
+                        <h3 class="text-center">Performance Database</h3>
+                        <p class="text-center">Access detailed specifications and performance metrics for thousands of vehicles, from classic muscle to modern hypercars.</p>
                     </div>
                 </div>
                 
-                <div class="car-card animate-on-scroll">
-                    <div class="car-image">
-                        <img src="https://images.unsplash.com/photo-1494972308805-463bc619d34e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Ford Mustang">
-                    </div>
-                    <div class="car-info">
-                        <h3>Ford Mustang Shelby GT500</h3>
-                        <p>American muscle at its finest with earth-shaking power and aggressive styling.</p>
-                        <div class="car-specs">
-                            <div class="spec-item">
-                                <i class="fas fa-tachometer-alt"></i>
-                                <span>180 mph</span>
-                            </div>
-                            <div class="spec-item">
-                                <i class="fas fa-bolt"></i>
-                                <span>760 HP</span>
-                            </div>
-                            <div class="spec-item">
-                                <i class="fas fa-stopwatch"></i>
-                                <span>3.3s 0-60</span>
-                            </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon text-center">
+                            <i class="fas fa-volume-up"></i>
                         </div>
-                        <a href="#" class="btn">View Details</a>
+                        <h3 class="text-center">Sound Library</h3>
+                        <p class="text-center">Our extensive collection of high-fidelity engine recordings lets you experience the soul of every vehicle.</p>
                     </div>
                 </div>
                 
-                <div class="car-card animate-on-scroll">
-                    <div class="car-image">
-                        <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Nissan GT-R">
-                    </div>
-                    <div class="car-info">
-                        <h3>Nissan GT-R Nismo</h3>
-                        <p>The legendary Godzilla, a technological marvel with brutal acceleration.</p>
-                        <div class="car-specs">
-                            <div class="spec-item">
-                                <i class="fas fa-tachometer-alt"></i>
-                                <span>196 mph</span>
-                            </div>
-                            <div class="spec-item">
-                                <i class="fas fa-bolt"></i>
-                                <span>600 HP</span>
-                            </div>
-                            <div class="spec-item">
-                                <i class="fas fa-stopwatch"></i>
-                                <span>2.5s 0-60</span>
-                            </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon text-center">
+                            <i class="fas fa-users"></i>
                         </div>
-                        <a href="#" class="btn">View Details</a>
+                        <h3 class="text-center">Exclusive Community</h3>
+                        <p class="text-center">Connect with fellow enthusiasts, share your builds, and get expert advice from industry professionals.</p>
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <!-- Engine Sounds Section -->
-        <section id="sounds" class="engine-sounds animate-on-scroll">
-            <div class="sound-container">
-                <h2 class="section-title">Iconic Engine Sounds</h2>
-                <div class="sound-grid">
-                    <div class="sound-card">
-                        <h3>Ferrari V12</h3>
-                        <p>The screaming symphony of Maranello</p>
-                        <audio controls>
-                            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        </div>
+    </section>
+
+    <!-- Engine Sounds Section -->
+    <section class="py-5" id="sounds" style="background-color: var(--secondary);">
+        <div class="container py-5">
+            <h2 class="text-center section-title">Sounds for car guys</h2>
+            <p class="text-center mb-5">Experience the symphony of mechanical perfection</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="car-audio-player">
+                        
+                        <audio controls class="w-100">
+                            <source src="/ytmp3free.cc_nissan-skyline-gtr-r34-turbo-sound-youtubemp3free.org (1).mp3" type="audio/mpeg">
                             Your browser does not support the audio element.
                         </audio>
-                        <button class="btn">More Ferrari Sounds</button>
+                        <p class="mt-2"><small>Recorded at Fiorano Circuit, Italy</small></p>
                     </div>
-                    
-                    <div class="sound-card">
-                        <h3>American V8</h3>
-                        <p>The deep rumble of raw power</p>
-                        <audio controls>
-                            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="car-audio-player">
+                        
+                        <audio controls class="w-100">
+                            <source src="/ytmp3free.cc_ak47-supra-youtubemp3free.org.mp3" type="audio/mpeg">
                             Your browser does not support the audio element.
                         </audio>
-                        <button class="btn">More Muscle Sounds</button>
+                        <p class="mt-2"><small>Recorded at Nürburgring, Germany</small></p>
                     </div>
-                    
-                    <div class="sound-card">
-                        <h3>Porsche Flat-6</h3>
-                        <p>The distinctive howl of Stuttgart</p>
-                        <audio controls>
-                            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" type="audio/mpeg">
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="car-audio-player">
+                      
+                        <audio controls class="w-100">
+                            <source src="/ytmp3free.cc_dodge-demon-burnout-youtubemp3free.org.mp3" type="audio/mpeg">
                             Your browser does not support the audio element.
                         </audio>
-                        <button class="btn">More Porsche Sounds</button>
+                        <p class="mt-2"><small>Recorded at Willow Springs, USA</small></p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="car-audio-player">
+                       
+                        <audio controls class="w-100">
+                            <source src="/ytmp3free.cc_loudest-ferrari-458-in-the-world-headphone-users-beware-insane-tunnel-accelerations-youtubemp3free.org.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="mt-2"><small>Recorded at Fuji Speedway, Japan</small></p>
                     </div>
                 </div>
             </div>
-        </section>
+            
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-primary">View Full Sound Library</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Car Showcase Section -->
+    <section class="py-5" id="showcase" style="background-color: var(--dark);">
+        <div class="container py-5">
+            <h2 class="text-center section-title">Featured Vehicles</h2>
+            <p class="text-center mb-5">Legendary machines from our community</p>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="car-card">
+                        <img src="https://www.casualsociety.co.za/wp-content/uploads/2017/04/RWB-porsche-meet.jpg" alt="Porsche 911 GT3 RS" class="car-img">
+                        <div class="car-specs">
+                            <h4>Porsche 911 GT3 RS</h4>
+                            
+                            <div class="spec-item">
+                                <span>Engine:</span>
+                                <span class="spec-value">4.0L Flat-6</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>Power:</span>
+                                <span class="spec-value">525 HP</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>0-60:</span>
+                                <span class="spec-value">3.0s</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>Top Speed:</span>
+                                <span class="spec-value">193 mph</span>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="car-card">
+                        <img src="https://i.pinimg.com/736x/1f/4f/ac/1f4facfbb41be91928226b97164b2ad8.jpg" alt="Ford Mustang Shelby GT500" class="car-img">
+                        <div class="car-specs">
+                            <h4>Ford Mustang Shelby GT500</h4>
+                           
+                            <div class="spec-item">
+                                <span>Engine:</span>
+                                <span class="spec-value">5.2L Supercharged V8</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>Power:</span>
+                                <span class="spec-value">760 HP</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>0-60:</span>
+                                <span class="spec-value">3.3s</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>Top Speed:</span>
+                                <span class="spec-value">180 mph</span>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="car-card">
+                        <img src="https://c4.wallpaperflare.com/wallpaper/316/827/578/car-liberty-walk-night-nissan-wallpaper-preview.jpg" alt="Nissan Skyline GT-R R34" class="car-img">
+                        <div class="car-specs">
+                            <h4>Nissan Skyline GT-R R34</h4>
+                            
+                            <div class="spec-item">
+                                <span>Engine:</span>
+                                <span class="spec-value">2.6L Twin-Turbo I6</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>Power:</span>
+                                <span class="spec-value">330 HP (Stock)</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>0-60:</span>
+                                <span class="spec-value">4.4s</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>Top Speed:</span>
+                                <span class="spec-value">165 mph</span>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-primary">View All Featured Vehicles</a>
+            </div>
+        </div>
+    </section>
+    <!-- Video Section -->
+<section class="py-5" id="videos" style="background-color: var(--secondary);">
+    <div class="container py-5">
+        <h2 class="text-center section-title">Premium Video Content</h2>
+        <p class="text-center mb-5">Experience automotive excellence in motion</p>
         
-        <!-- About Section -->
-        <section id="about" class="about-section animate-on-scroll">
-            <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1504215680853-026ed2a45def?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Car Meet">
+        <div class="row">
+            <!-- Video Card 1 -->
+            <div class="col-lg-6 mb-4">
+                <div class="video-card">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://youtu.be/SKkvlYi6JC0?si=cqDR4YbDwzUQhN7L" title="YouTube video" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info p-4">
+                        
+                       
+                        <div class="video-meta d-flex justify-content-between">
+                            <span><i class="fas fa-calendar me-2"></i> June 15, 2023</span>
+                            <span><i class="fas fa-clock me-2"></i> 12:34</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="about-content">
-                <h2>About RevZone</h2>
-                <p>Founded in 2010 by a group of passionate car enthusiasts, RevZone has grown into the premier online destination for everything automotive. From classic muscle to cutting-edge hypercars, we celebrate all things with four wheels and an engine.</p>
-                <p>Our mission is to connect car lovers worldwide, share knowledge, and fuel the passion that drives our community. Whether you're a seasoned gearhead or just starting your automotive journey, you'll find a home here at RevZone.</p>
-                <p>Join us at our annual RevFest car show, participate in our forums, or simply enjoy our curated content. The road is better when traveled together.</p>
-                <a href="#" class="btn">Join Our Community</a>
+            
+            <!-- Video Card 2 -->
+            <div class="col-lg-6 mb-4">
+                <div class="video-card">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info p-4">
+                        
+                        <div class="video-meta d-flex justify-content-between">
+                            <span><i class="fas fa-calendar me-2"></i> May 22, 2023</span>
+                            <span><i class="fas fa-clock me-2"></i> 28:15</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
-    </div>
-    
+            
+            <!-- Video Card 3 -->
+            <div class="col-lg-6 mb-4">
+                <div class="video-card">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info p-4">
+                       
+                        <div class="video-meta d-flex justify-content-between">
+                            <span><i class="fas fa-calendar me-2"></i> April 5, 2023</span>
+                            <span><i class="fas fa-clock me-2"></i> 18:42</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+           <!-- Video Section -->
+<section class="py-5" id="videos" style="background-color: var(--secondary);">
+    <div class="container py-5">
+       
+        
+        <div class="row">
+            <!-- Video Card 1 -->
+            <div class="col-lg-6 mb-4">
+                <div class="video-card">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info p-4">
+                        
+                        <div class="video-meta d-flex justify-content-between">
+                            <span><i class="fas fa-calendar me-2"></i> June 15, 2023</span>
+                            <span><i class="fas fa-clock me-2"></i> 12:34</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Video Card 2 -->
+            <div class="col-lg-6 mb-4">
+                <div class="video-card">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info p-4">
+                       
+                        <div class="video-meta d-flex justify-content-between">
+                            <span><i class="fas fa-calendar me-2"></i> May 22, 2023</span>
+                            <span><i class="fas fa-clock me-2"></i> 28:15</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Video Card 3 -->
+            <div class="col-lg-6 mb-4">
+                <div class="video-card">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info p-4">
+                        
+                        <div class="video-meta d-flex justify-content-between">
+                            <span><i class="fas fa-calendar me-2"></i> April 5, 2023</span>
+                            <span><i class="fas fa-clock me-2"></i> 18:42</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+    <!-- Gallery Section -->
+    <section class="py-5" id="gallery" style="background-color: var(--secondary);">
+        <div class="container py-5">
+            <h2 class="text-center section-title">Premium Gallery</h2>
+            <p class="text-center mb-5">Curated automotive excellence</p>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="gallery-item">
+                        <img src="https://w0.peakpx.com/wallpaper/510/915/HD-wallpaper-liberty-walk-lamborghini-windows.jpg" alt="Lamborghini Aventador SVJ" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h4>Lamborghini Aventador SVJ</h4>
+                            <p>6.5L V12 - 759 HP</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="gallery-item">
+                        <img src="https://c4.wallpaperflare.com/wallpaper/90/399/713/bmw-f82-m4-wide-body-hd-wallpaper-preview.jpg" alt="BMW M4 Competition" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h4>BMW M4 Competition</h4>
+                            <p>3.0L Twin-Turbo I6 - 503 HP</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="gallery-item">
+                        <img src="https://i.pinimg.com/736x/ee/f5/67/eef56742ec0dd6abd4b78f6e582f1d98.jpg" alt="Nissan Skyline GT-R R34" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h4>Nissan Skyline GT-R R34</h4>
+                            <p>2.6L Twin-Turbo I6 - 330 HP</p>
+                        </div>
+                    </div>
+                </div>
+                
+                
+      
+                <div class="col-md-6">
+                    <div class="gallery-item">
+                        <img src="https://i.pinimg.com/736x/61/99/17/619917387c1f29e133f52f134864be19.jpg" alt="McLaren P1" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h4>McLaren P1</h4>
+                            <p>3.8L Twin-Turbo V8 Hybrid - 903 HP</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-primary">View Full Gallery</a>
+            </div>
+        </div>
+    </section>
+
+            
+        
+    <!-- Contact Section -->
+    <section class="py-5" id="contact" style="background-color: var(--dark);">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p>Have questions about Vector Garage? Want to feature your vehicle? Our team is always ready to connect with fellow enthusiasts.</p>
+                    
+                    <div class="mt-5">
+                        <h4><i class="fas fa-map-marker-alt me-2"></i> Headquarters</h4>
+                        <p class="ms-4">123 Velocity Drive<br>Motor City, MC 48201</p>
+                        
+                        <h4 class="mt-4"><i class="fas fa-phone me-2"></i> Contact</h4>
+                        <p class="ms-4">+1 (555) VEC-TOR1<br>info@vectorgarage.com</p>
+                        
+                        <h4 class="mt-4"><i class="fas fa-clock me-2"></i> Hours</h4>
+                        <p class="ms-4">Monday - Friday: 9AM - 6PM<br>Saturday: 10AM - 4PM<br>Sunday: Closed</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="contact-form">
+                        <h3 class="mb-4">Send Us a Message</h3>
+                        <form>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Subject">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer id="contact">
-        <div class="footer-content">
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 text-center text-md-start">
+                    <h3 class="mb-4">VECTOR GARAGE</h3>
+                    <p>Premium automotive community for enthusiasts by enthusiasts.</p>
+                </div>
+                
+                <div class="col-md-4 text-center">
+                    <h4 class="mb-4">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="#home">Home</a>
+                        <a href="#features">Features</a>
+                        <a href="#sounds">Sounds</a>
+                        <a href="#showcase">Showcase</a>
+                        <a href="#gallery">Gallery</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 text-center text-md-end">
+                    <h4 class="mb-4">Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
             </div>
-            <ul class="footer-links">
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
-                <li><a href="#">Careers</a></li>
-                <li><a href="#">Advertise</a></li>
-                <li><a href="#">Contact Us</a></li>
-            </ul>
-            <p class="copyright">© 2023 RevZone. All rights reserved. | Designed for car enthusiasts by car enthusiasts.</p>
+            
+            <hr class="my-4" style="border-color: rgba(241, 250, 238, 0.1);">
+            
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0"><small>&copy; 2023 Vector Garage. All rights reserved.</small></p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0"><small>Designed with <i class="fas fa-heart text-danger"></i> for car enthusiasts</small></p>
+                </div>
+            </div>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
+        // Back to Top Button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('active');
             } else {
-                navbar.classList.remove('scrolled');
+                backToTopButton.classList.remove('active');
             }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
         
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
@@ -633,34 +981,82 @@
             });
         });
         
-        // Animation on scroll
-        function checkScroll() {
-            const elements = document.querySelectorAll('.animate-on-scroll');
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(13, 27, 42, 0.95)' !important;
+                navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                navbar.style.backgroundColor = 'rgba(13, 27, 42, 0.9)' !important;
+                navbar.style.boxShadow = 'none';
+            }
+        });
+        
+        // Animation on scroll initialization
+        window.addEventListener('scroll', function() {
+            const elements = document.querySelectorAll('.feature-card, .car-audio-player, .car-card, .gallery-item');
             
             elements.forEach(element => {
                 const elementPosition = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
+                const screenPosition = window.innerHeight / 1.2;
                 
-                if (elementPosition < windowHeight - 100) {
-                    element.classList.add('visible');
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
                 }
             });
-        }
+        });
         
-        window.addEventListener('scroll', checkScroll);
-        window.addEventListener('load', checkScroll);
-        
-        // Audio player enhancement
-        document.querySelectorAll('audio').forEach(audio => {
-            audio.addEventListener('play', function() {
-                // Pause all other audio elements when one plays
-                document.querySelectorAll('audio').forEach(otherAudio => {
-                    if (otherAudio !== audio && !otherAudio.paused) {
-                        otherAudio.pause();
-                    }
-                });
+        // Trigger animations on page load for elements in viewport
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.feature-card, .car-audio-player, .car-card, .gallery-item');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                } else {
+                    element.style.opacity = '0';
+                    element.style.transform = 'translateY(20px)';
+                    element.style.transition = 'all 0.6s ease-out';
+                }
             });
         });
+        <script>
+    // Engine start sound on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        // Try to play the engine sound
+        const playEngineSound = () => {
+            const engineSound = document.getElementById('engineStartSound');
+            if (engineSound) {
+                engineSound.volume = 0.5; // Set volume to 50%
+                const promise = engineSound.play();
+                
+                // Handle autoplay restrictions
+                if (promise !== undefined) {
+                    promise.catch(error => {
+                        // Autoplay was prevented, show a button to allow sound
+                        console.log('Autoplay prevented:', error);
+                    })
+                }
+            }
+        };
+        
+        // Try to play after a small delay
+        setTimeout(playEngineSound, 500);
+        
+        // Rest of your existing JavaScript code...
+        const backToTopButton = document.querySelector('.back-to-top');
+        // ... keep all your existing JavaScript code below
     </script>
+    <!-- Engine Start Sound (hidden) -->
+<audio id="engineStartSound" autoplay>
+    <source src="/Car starting sound effect.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
 </body>
 </html>
